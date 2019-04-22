@@ -1,0 +1,25 @@
+.titleHeader{
+    font-family: "Lucida Sans Unicode";
+    font-size: 27px; 
+    font-weight: bold; 
+    letter-spacing: 2px; 
+}
+
+.menu {
+    font-family: "Lucida Sans Unicode";
+    color: white;
+    font-size: 15px; 
+    font-weight: bold; 
+    margin: auto;
+}
+  
+.form-control-borderless {
+    border: none;
+}
+
+.form-control-borderless:hover, .form-control-borderless:active, .form-control-borderless:focus {
+    border: none;
+    outline: none;
+    box-shadow: none;
+}
+
