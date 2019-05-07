@@ -17,11 +17,14 @@ class StationRepository
         
     }
 
-    public function getAll()
+    public function getAll($ville)
     {
-        $response = file_get_contents('http://webtp.fil.univ-lille1.fr/~clerbout/carburant/recherche.php?commune=lille&carburants=1');
+        $response = file_get_contents('http://webtp.fil.univ-lille1.fr/~clerbout/carburant/recherche.php?commune='.$ville.'&carburants=1');
         $response = json_decode($response);
-        return $response->data;
+        if(!empty($response->data)){
+            return $response->data;
+        }
+        return false;        
     }
 
     public function getStationById($id){

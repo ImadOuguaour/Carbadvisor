@@ -1,7 +1,11 @@
 <?php 
     require $_SERVER['DOCUMENT_ROOT'].'/Carbadvisor/controler/StationRepository.php';
+    //require $_SERVER['DOCUMENT_ROOT'].'/Carbadvisor/controler/UtilisateursStationsRepository.php';
     $station_detail = new StationRepository();
     $station_detail = $station_detail->getStationById($_GET['id']);
+    if(isset($_POST['like_station']) && $_POST['like_station'] != ''){
+        $new_station_liker = new StationRepository();
+    }
 ?>
 <html>
 <title>Carbadvisor</title>
@@ -25,7 +29,10 @@
         ?>
             <br />
             <div class="float-right ">
-                <button class='btn btn-success'>Liker <i class="fa fa-lg fa-thumbs-up" aria-hidden="true"></i></button>
+                <form method='POST'>
+                    <input type='hidden' name='like_station' value="<?php echo $station_detail->id ?>" />
+                    <button class='btn btn-success'>Liker <i class="fa fa-lg fa-thumbs-up" aria-hidden="true"></i></button>
+                </form>
             </div><br/><br/>
         <?php
             }
